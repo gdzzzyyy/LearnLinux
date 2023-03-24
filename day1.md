@@ -25,3 +25,15 @@ yum 报错：
     3 -> nmcli con mod enp0s2f1u3 connection.autoconnect "yes"
         -> 再启动之后，虚拟机的网络设置还是connectied状态
 
+# 3.遇到虚拟机和本地控制台的语言不统一
+-    比如虚拟机是英语环境， 本地主机是日语环境。
+    理论上本地连接虚拟机也应该是英语。但是有时候还是会显示日语。
+
+- ### 解决方法
+```bash
+[root@localhost ~]# echo 'export LC_ALL=en_US.UTF-8' >> ~/.bashrc
+[root@localhost ~]# echo 'export LANGUAGE=en_US.UTF-8' >> ~/.bashrc
+[root@localhost ~]# echo 'export LANG=en_US.UTF-8' >> ~/.bashrc     
+[root@localhost ~]# source ~/.bashrc   //重启
+```
+
