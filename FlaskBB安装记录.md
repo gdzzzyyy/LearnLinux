@@ -37,11 +37,16 @@
 194  source ~/.bashrc
 
 ## redis安装
-204  sudo yum install epel-release
+204  sudo yum install epel-release  //添加epel仓库
 205  sudo yum update
 206  sudo yum -y install redis
-207  sudo systemctl start redis
-208  systemctl enable redis.service  //重启redis服务
+207  sudo systemctl start redis      //启动redis
+    vi /etc/redis.conf  //可以被远程连接，修改配置文件
+    //注释下面这一行
+    #bind 127.0.0.1
+    //给redis设置密码 打开代码
+    requirepass 密码
+208  systemctl enable redis.service  //上述设置了，就需要重启redis服务
 
 ## mysql 安装
 209  yum install mysql
